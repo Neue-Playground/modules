@@ -19,7 +19,7 @@ function Canvas(props: any): JSX.Element {
   const ref = useCallback((node: HTMLCanvasElement) => {
     props.onCanvasChanged(node);
   }, []);
-  
+
   const sizerRef = useRef(null);
   const fixedSizeRef = useRef(null);
 
@@ -63,7 +63,7 @@ export function defineChartReactNode(args: ChartNodeOptions) {
 
       // Expose the Helper so we can get the Click data etc
       this.setOutputs({ helpers: ChartHelpers });
-      
+
       this.props.onCanvasChanged = (node: HTMLCanvasElement) => {
         if (this.chart) {
           this.chart.destroy();
@@ -103,13 +103,11 @@ export function defineChartReactNode(args: ChartNodeOptions) {
         group: "Before Event",
         type: "*",
         displayName: "Chart",
-        editorName: "Before Event Chart",
       },
       beforeEventArgs: {
         group: "Before Event",
         type: "*",
         displayName: "Args",
-        editorName: "Before Event Args",
       },
       onClick: {
         group: "Click Event",
@@ -120,7 +118,6 @@ export function defineChartReactNode(args: ChartNodeOptions) {
         group: "Click Event",
         type: "object",
         displayName: "Data",
-        editorName: "Click Data",
       },
       helpers: {
         group: "Click Event",
@@ -219,7 +216,7 @@ export function defineChartReactNode(args: ChartNodeOptions) {
             x.sourceId === this.id && x.sourcePort === portName ||
             x.targetId === this.id && x.targetPort === portName
           ) !== -1;
-        }
+        };
 
         const chartConfig: ChartConfiguration<any, any, any> = {
           type: args.type,
